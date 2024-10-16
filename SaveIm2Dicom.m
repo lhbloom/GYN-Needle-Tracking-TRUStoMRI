@@ -4,11 +4,11 @@
 clear; close all; clc;
 
 % load US data
-trus=dicomread('/Users/Lindsey/Downloads/REC00000');
-trus_info=dicominfo('/Users/Lindsey/Downloads/REC00000'); %gives pixel spacing info
+trus=dicomread('/Users/Lindsey/Downloads/Needle-Tracking/Manuscript Files/12_01_LDR/123456/20231201/141354/3DDATA/REC00000');
+trus_info=dicominfo('/Users/Lindsey/Downloads/Needle-Tracking/Manuscript Files/12_01_LDR/123456/20231201/141354/3DDATA/REC00000'); %gives pixel spacing info
 trus=squeeze(trus);
 figure;
-sliceViewer(trus,'Colormap',gray,'SliceDirection','Y');
+sliceViewer(trus,'Colormap',gray,'SliceDirection','X');
 %%
 %pre-processing and visualization
 trus2=permute(trus,[3 1 2]); % permute command changes orientation of axis
@@ -24,7 +24,7 @@ trus4= fliplr(trus3);
 %X is sagittal
 
 %figure;
-%sliceViewer(trus3,'Colormap',gray,'SliceDirection','X');
+sliceViewer(trus3,'Colormap',gray,'SliceDirection','X');
 % Assume an image volume
 % Im = permute(EOIvol,[2 1 3]); % make sure it follows DICOM coordinate system
 Im =  trus4;
